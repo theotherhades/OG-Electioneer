@@ -65,3 +65,17 @@ def whitelist(id: str):
     """
     r = json.loads(requests.post(f"{url}/whitelist", data = {"id": id}).text)
     return r
+
+def getstatus():
+    """
+    Get the bot's current status
+    """
+    r = requests.get(f"{url}/getstatus").text
+    return r
+
+def changestatus(status: str):
+    """
+    Change the bot's current status
+    """
+    r = json.loads(requests.post(f"{url}/changestatus", data = {"status": status}).text)
+    return r

@@ -20,7 +20,7 @@ user_whitelist = server.getwhitelist()
 @client.event
 async def on_ready():
     print("bot online!")
-    await client.change_presence(activity = nextcord.Activity(type = nextcord.ActivityType.watching, name = "neutronian's onlyfans"))
+    await client.change_presence(activity = nextcord.Activity(type = nextcord.ActivityType.watching, name = server.getstatus()))
 
     # Waking server message
     embed = nextcord.Embed(title = ":sleeping: Waking server, please wait", description = "This may take a few seconds", color = nextcord.Color.blurple())
@@ -123,6 +123,7 @@ async def vote(ctx, arg = ""):
 
     await ctx.reply(embed = embed)
 
+# ----- Admin commands ----- #
 @client.command()
 async def admin(ctx, cmd, arg = ""):
     admin_role = nextcord.utils.get(ctx.guild.roles, id = 1013316067956891748)
@@ -138,6 +139,17 @@ async def admin(ctx, cmd, arg = ""):
                 r = server.getwhitelist()
             else:
                 r = server.whitelist(arg)
+
+        if cmd == "status": # Change/get bot status
+            if arg == "":
+                r = server.getstatus()
+
+                embed = nextcord.Embed(title = "Current Status", description = f"My current status is {r}", color = nextcord.Color.blurple())
+                await ctx.reply(embed = embed)
+                return
+            else:
+                r = server.changestatus(arg)
+                await client.change_presence(activity = nextcord.Activity(type = nextcord.ActivityType.watching, name = server.getstatus()))
 
         # Send back the results
         if r["error"] == True: embed_color = nextcord.Color.red()
