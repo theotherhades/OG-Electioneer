@@ -129,19 +129,19 @@ async def admin(ctx, cmd, *, arg):
     admin_role = nextcord.utils.get(ctx.guild.roles, id = 1013316067956891748)
     if admin_role in ctx.author.roles:
         if cmd == "blacklist": # blacklist user
-            if arg == None:
+            if arg == []:
                 r = server.getblacklist()
             else:
                 r = server.blacklist(arg)
 
         if cmd == "whitelist": # whitelist user
-            if arg == None:
+            if arg == []:
                 r = server.getwhitelist()
             else:
                 r = server.whitelist(arg)
 
         if cmd == "status": # Change/get bot status
-            if arg == None:
+            if arg == []:
                 r = server.getstatus()
 
                 embed = nextcord.Embed(title = "Current Status", description = f"My current status is `{r}`", color = nextcord.Color.blurple())
