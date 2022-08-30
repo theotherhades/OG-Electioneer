@@ -70,7 +70,7 @@ def getstatus():
     """
     Get the bot's current status
     """
-    r = requests.get(f"{url}/getstatus").text
+    r = json.loads(requests.get(f"{url}/getstatus").text)
     return r
 
 def changestatus(status: str):
