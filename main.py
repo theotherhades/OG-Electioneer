@@ -126,8 +126,21 @@ async def vote(ctx, arg = ""):
 # ----- Admin commands ----- #
 @client.command()
 async def admin(ctx, cmd, *, arg = ""):
-    admin_role = nextcord.utils.get(ctx.guild.roles, id = 1013316067956891748)
-    if admin_role in ctx.author.roles:
+    admin_roles = [
+        nextcord.utils.get(ctx.guild.roles, id = 1013316067956891748), # dev server
+        nextcord.utils.get(ctx.guild.roles, id = 926904103399989248), # rear
+        nextcord.utils.get(ctx.guild.roles, id = 925636478850195517), # vice
+        nextcord.utils.get(ctx.guild.roles, id = 930302959668056135), # admiral
+        nextcord.utils.get(ctx.guild.roles, id = 949071726392778843), # coleader
+        nextcord.utils.get(ctx.guild.roles, id = 997799134557913129), # grand admiral
+        nextcord.utils.get(ctx.guild.roles, id = 925640681425338378) # supreme founder
+    ]
+    for i in admin_roles:
+        if i in ctx.author.roles:
+            has_perms = True
+    has_perms = False
+
+    if has_perms == True:
         if cmd == "blacklist": # blacklist user
             if arg == "":
                 r = server.getblacklist()
