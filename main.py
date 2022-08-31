@@ -139,6 +139,7 @@ async def admin(ctx, cmd, *, arg = ""):
     for i in admin_roles:
         if i in ctx.author.roles:
             has_perms = True
+            break
     else:
         has_perms = False
 
