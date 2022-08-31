@@ -15,6 +15,7 @@ help_txt = {
 }
 client = commands.Bot(command_prefix = "$", help_command = None)
 user_whitelist = server.getwhitelist()
+log_channel = 1014449804136423474
 
 # ----- Events ----- #
 @client.event
@@ -24,14 +25,14 @@ async def on_ready():
 
     # Waking server message
     embed = nextcord.Embed(title = ":sleeping: Waking server, please wait", description = "This may take a few seconds", color = nextcord.Color.blurple())
-    await client.get_channel(1007535110737899522).send(embed = embed)
+    await client.get_channel(log_channel).send(embed = embed)
     server_ping = server.ping()
 
     if server_ping == "success":
         embed = nextcord.Embed(title = ":white_check_mark: Server woke successfully", color = nextcord.Color.green())
     else:
         embed = nextcord.Embed(title = ":no_entry: Server failed to wake", description = server_ping, color = nextcord.Color.red())
-    await client.get_channel(1007535110737899522).send(embed = embed)
+    await client.get_channel(log_channel).send(embed = embed)
 
 # ----- Commands ----- #
 @client.command()
@@ -138,7 +139,8 @@ async def admin(ctx, cmd, *, arg = ""):
     for i in admin_roles:
         if i in ctx.author.roles:
             has_perms = True
-    has_perms = False
+    else:
+        has_perms = False
 
     if has_perms == True:
         if cmd == "blacklist": # blacklist user
