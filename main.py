@@ -151,6 +151,12 @@ async def admin(ctx, cmd, *, arg = ""):
                 r = server.changestatus(arg)
                 await client.change_presence(activity = nextcord.Activity(type = nextcord.ActivityType.watching, name = server.getstatus()))
 
+        if cmd == "open":
+            r = server.open()
+        
+        if cmd == "close":
+            r = server.close()
+
         # Send back the results
         if r["error"] == True: embed_color = nextcord.Color.red()
         else: embed_color = nextcord.Color.green()

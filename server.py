@@ -79,3 +79,17 @@ def changestatus(status: str):
     """
     r = json.loads(requests.post(f"{url}/changestatus", data = {"status": status}).text)
     return r
+
+def open():
+    """
+    Open voting
+    """
+    r = json.loads(requests.post(f"{url}/openclose", data = {"action": "open"}))
+    return r
+
+def close():
+    """
+    Close voting
+    """
+    r = json.loads(requests.post(f"{url}/openclose", data = {"action": "close"}))
+    return r
