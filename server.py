@@ -84,12 +84,12 @@ def open():
     """
     Open voting
     """
-    r = json.loads(requests.post(f"{url}/openclose", data = {"action": "open"}))
+    r = json.loads(requests.post(f"{url}/openclose", data = {"action": "open"}).text)
     return r
 
 def close():
     """
     Close voting
     """
-    r = json.loads(requests.post(f"{url}/openclose", data = {"action": "close"}))
+    r = json.loads(requests.post(f"{url}/openclose", data = {"action": "close"}).text)
     return r
