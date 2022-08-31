@@ -105,6 +105,11 @@ async def register(ctx):
     if str(ctx.author.id) in user_whitelist:
         embed = nextcord.Embed(title = "User whitlisted", description = "You are whitelisted; there is no need to register to vote :slight_smile:", color = nextcord.Color.green())
     else:
+        if (nextcord.utils.get(ctx.guild.roles, id = 961997055507714088) in ctx.author.roles) or (nextcord.utils.get(ctx.guild.roles, id = 1011815110429397072) in ctx.author.roles):
+            embed = nextcord.Embed(title = "Registration failed", description = "You failed to meet the requirements to vote. If this is a mistake, try again or contact an admiral.", color = nextcord.Color.red())
+            await ctx.reply(embed = embed)
+            return
+            
         r = server.register(ctx.author.id)
         if r["error"] == True: embed_color = nextcord.Color.red()
         else: embed_color = nextcord.Color.green()
