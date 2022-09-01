@@ -37,7 +37,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.author.id == 1012191943163379813:
-        await message.add_reaction(":rolling_eyes:")
+        await message.add_reaction("🙄")
     
     await client.process_commands(message)
 
