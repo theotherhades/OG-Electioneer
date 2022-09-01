@@ -37,7 +37,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if "drako" in message.content:
-        await message.add_reaction("🙄")
+        await message.add_reaction("😎")
     
     await client.process_commands(message)
 
