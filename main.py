@@ -15,6 +15,7 @@ help_txt = {
 }
 client = commands.Bot(command_prefix = "$", help_command = None)
 user_whitelist = server.getwhitelist()
+log_channel = 1014449804136423474
 
 # ----- Events ----- #
 @client.event
@@ -24,14 +25,14 @@ async def on_ready():
 
     # Waking server message
     embed = nextcord.Embed(title = ":sleeping: Waking server, please wait", description = "This may take a few seconds", color = nextcord.Color.blurple())
-    await client.get_channel(1007535110737899522).send(embed = embed)
+    await client.get_channel(log_channel).send(embed = embed)
     server_ping = server.ping()
 
     if server_ping == "success":
         embed = nextcord.Embed(title = ":white_check_mark: Server woke successfully", color = nextcord.Color.green())
     else:
         embed = nextcord.Embed(title = ":no_entry: Server failed to wake", description = server_ping, color = nextcord.Color.red())
-    await client.get_channel(1007535110737899522).send(embed = embed)
+    await client.get_channel(log_channel).send(embed = embed)
 
 @client.event
 async def on_message(message):
@@ -111,6 +112,11 @@ async def register(ctx):
     if str(ctx.author.id) in user_whitelist:
         embed = nextcord.Embed(title = "User whitlisted", description = "You are whitelisted; there is no need to register to vote :slight_smile:", color = nextcord.Color.green())
     else:
+        if (nextcord.utils.get(ctx.guild.roles, id = 961997055507714088) in ctx.author.roles) or (nextcord.utils.get(ctx.guild.roles, id = 1011815110429397072) in ctx.author.roles):
+            embed = nextcord.Embed(title = "Registration failed", description = "You failed to meet the requirements to vote. If this is a mistake, try again or contact an admiral.", color = nextcord.Color.red())
+            await ctx.reply(embed = embed)
+            return
+            
         r = server.register(ctx.author.id)
         if r["error"] == True: embed_color = nextcord.Color.red()
         else: embed_color = nextcord.Color.green()
@@ -133,8 +139,23 @@ async def vote(ctx, arg = ""):
 # ----- Admin commands ----- #
 @client.command()
 async def admin(ctx, cmd, *, arg = ""):
-    admin_role = nextcord.utils.get(ctx.guild.roles, id = 1013316067956891748)
-    if admin_role in ctx.author.roles:
+    admin_roles = [
+        nextcord.utils.get(ctx.guild.roles, id = 1013316067956891748), # dev server
+        nextcord.utils.get(ctx.guild.roles, id = 926904103399989248), # rear
+        nextcord.utils.get(ctx.guild.roles, id = 925636478850195517), # vice
+        nextcord.utils.get(ctx.guild.roles, id = 930302959668056135), # admiral
+        nextcord.utils.get(ctx.guild.roles, id = 949071726392778843), # coleader
+        nextcord.utils.get(ctx.guild.roles, id = 997799134557913129), # grand admiral
+        nextcord.utils.get(ctx.guild.roles, id = 925640681425338378) # supreme founder
+    ]
+    for i in admin_roles:
+        if i in ctx.author.roles:
+            has_perms = True
+            break
+    else:
+        has_perms = False
+
+    if has_perms == True:
         if cmd == "blacklist": # blacklist user
             if arg == "":
                 r = server.getblacklist()
