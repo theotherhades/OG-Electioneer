@@ -33,6 +33,13 @@ async def on_ready():
         embed = nextcord.Embed(title = ":no_entry: Server failed to wake", description = server_ping, color = nextcord.Color.red())
     await client.get_channel(1007535110737899522).send(embed = embed)
 
+@client.event
+async def on_message(message):
+    if message.author.id == 1012191943163379813:
+        await message.add_reaction(":rolling_eyes:")
+    
+    await client.process_commands(message)
+
 # ----- Commands ----- #
 @client.command()
 async def help(ctx):
