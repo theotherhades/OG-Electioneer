@@ -36,8 +36,14 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if "drako" in message.content:
-        await message.add_reaction("😎")
+    reaction_phrases = {
+        "drako": "😎",
+        "greece": "🇬🇷"
+    }
+
+    for phrase in reaction_phrases.keys():
+        if phrase in message.content:
+            await message.add_reaction(reaction_phrases[phrase])
     
     await client.process_commands(message)
 
