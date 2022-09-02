@@ -38,11 +38,11 @@ async def on_ready():
 async def on_message(message):
     reaction_phrases = {
         "drako": "😎",
-        "greece": "🇬🇷"
+        "greece": "🇬🇷",
     }
 
     for phrase in reaction_phrases.keys():
-        if phrase in message.content:
+        if phrase in message.content.lower():
             await message.add_reaction(reaction_phrases[phrase])
     
     await client.process_commands(message)
