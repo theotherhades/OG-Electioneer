@@ -39,6 +39,7 @@ async def on_message(message):
     reaction_phrases = {
         "drako": "😎",
         "greece": "🇬🇷",
+        "belgium": "🇧🇪",
     }
 
     for phrase in reaction_phrases.keys():
