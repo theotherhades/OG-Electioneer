@@ -37,12 +37,121 @@ async def on_ready():
 @client.event
 async def on_message(message):
     reaction_phrases = {
+        # People
         "drako": "😎",
+        "solo": "<:pepe_ez~1:925650217464918056>",
+        "novo": "⚡",
+
+        # Countries
         "greece": "🇬🇷",
         "belgium": "🇧🇪",
         "bolivia": "🇧🇴",
         "egypt": "🇪🇬",
-        "solo": "<:pepe_ez~1:925650217464918056>",
+
+        # M
+        "madagascar": "🇲🇬",
+        "moldova": "🇲🇩",
+
+        # N
+        "namibia": "🇳🇦",
+        "nauru": "🇳🇷",
+        "nepal": "🇳🇵",
+        "netherlands": "🇳🇱",
+        "new zealand": "🇳🇿",
+        "nicaragua": "🇳🇮",
+        "niger": "🇳🇪",
+        "nigeria": "🇳🇬",
+        "north macedonia": "🇲🇰",
+        "norway": "🇳🇴",
+
+        # O
+        "oman": "🇴🇲",
+
+        # P
+        "pakistan": "🇵🇰",
+        "palau": "🇵🇼",
+        "panama": "🇵🇦",
+        "papua new guinea": "🇵🇬",
+        "paraguay": "🇵🇾",
+        "peru": "🇵🇪",
+        "philippines": "🇵🇭",
+        "poland": "🇵🇱",
+        "portugal": "🇵🇹",
+        
+        # Q
+        "qatar": "🇶🇦",
+
+        # R
+        "romania": "🇷🇴",
+        "russia": "🇷🇺",
+        "rwanda": "🇷🇼",
+
+        # S
+        "st kitts and nevis": "🇰🇳",
+        "st lucia": "🇱🇨",
+        "st vincent and the grenadines": "🇻🇨",
+        "samoa": "🇼🇸",
+        "san marino": "🇸🇲",
+        "sao tome and principe": "🇸🇹",
+        "saudi arabia": "🇸🇦",
+        "senegal": "🇸🇳",
+        "serbia": "🇷🇸",
+        "seychelles": "🇸🇨",
+        "sierra leone": "🇸🇱",
+        "singapore": "🇸🇬",
+        "slovakia": "🇸🇰",
+        "slovenia": "🇸🇮",
+        "solomon islands": "🇸🇧",
+        "somalia": "🇸🇴",
+        "south africa": "🇿🇦",
+        "south korea": "🇰🇷",
+        "south sudan": "🇸🇸",
+        "spain": "🇪🇸",
+        "sri lanka": "🇱🇰",
+        "sudan": "🇸🇩",
+        "suriname": "🇸🇷",
+        "sweden": "🇸🇪",
+        "switzerland": "🇨🇭",
+        "syria": "🇸🇾",
+
+        # T
+        "tajikistan": "🇹🇯",
+        "tanzania": "🇹🇿",
+        "thailand": "🇹🇭",
+        "timor leste": "🇹🇱",
+        "togo": "🇹🇬",
+        "tonga": "🇹🇴",
+        "trinidad and tobago": "🇹🇹",
+        "tunisia": "🇹🇳",
+        "turkiye": "🇹🇷",
+        "turkmenistan": "🇹🇲",
+        "tuvalu": "🇹🇻",
+        
+        # U
+        "uganda": "🇺🇬",
+        "ukraine": "🇺🇦",
+        "united arab emirates": "🇦🇪",
+        "uae": "🇦🇪",
+        "united kingdom": "🇬🇧",
+        "uk": "🇬🇧",
+        "united states of america": "🇺🇸",
+        "usa": "🇺🇸",
+        "us": "🇺🇸",
+        "uruguay": "🇺🇾",
+        "uzbekistan": "🇺🇿",
+
+        # V
+        "vanuatu": "🇻🇺",
+        "vatican": "🇻🇦",
+        "venezuela": "🇻🇪",
+        "vietnam": "🇻🇳",
+
+        # Y
+        "yemen": "🇾🇪",
+        
+        # Z
+        "zambia": "🇿🇲",
+        "zimbabwe": "🇿🇼",
     }
 
     for phrase in reaction_phrases.keys():
