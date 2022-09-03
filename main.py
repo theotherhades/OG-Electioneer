@@ -42,7 +42,7 @@ async def on_message(message):
         "belgium": "🇧🇪",
         "bolivia": "🇧🇴",
         "egypt": "🇪🇬",
-        "solo": "<:pepe_ez~1:1015464268331757649>",
+        "solo": "<:pepe_ez~1:925650217464918056>",
     }
 
     for phrase in reaction_phrases.keys():
