@@ -40,6 +40,9 @@ async def on_message(message):
         "drako": "😎",
         "greece": "🇬🇷",
         "belgium": "🇧🇪",
+        "bolivia": "🇧🇴",
+        "egypt": "🇪🇬",
+        "solo": "<:pepe_ez~1:1015464268331757649>",
     }
 
     for phrase in reaction_phrases.keys():
