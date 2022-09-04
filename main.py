@@ -136,7 +136,6 @@ async def on_message(message):
         "uk": "🇬🇧",
         "united states of america": "🇺🇸",
         "usa": "🇺🇸",
-        "us": "🇺🇸",
         "uruguay": "🇺🇾",
         "uzbekistan": "🇺🇿",
 
@@ -155,7 +154,7 @@ async def on_message(message):
     }
 
     for phrase in reaction_phrases.keys():
-        if phrase in message.content.lower():
+        if (message.content.lower() == phrase) or (f" {phrase} " in message.content.lower()) or (message.content.lower().startswith(phrase)) or (message.content.lower().endswith(phrase)): 
             await message.add_reaction(reaction_phrases[phrase])
     
     await client.process_commands(message)
