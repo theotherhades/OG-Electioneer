@@ -154,7 +154,7 @@ async def on_message(message):
     }
 
     for phrase in reaction_phrases.keys():
-        if (message.content.lower() == phrase) or (f" {phrase} " in message.content.lower()) or (message.content.lower().startswith(phrase)) or (message.content.lower().endswith(phrase)): 
+        if (message.content.lower() == phrase) or (f" {phrase} " in message.content.lower()) or (message.content.lower().startswith(phrase)) or (message.content.lower().endswith(f" {phrase}")): 
             await message.add_reaction(reaction_phrases[phrase])
     
     await client.process_commands(message)
