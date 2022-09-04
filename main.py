@@ -41,12 +41,80 @@ async def on_message(message):
         "drako": "😎",
         "solo": "<:pepe_ez~1:925650217464918056>",
         "novo": "⚡",
+        "naeem": "😍",
+        "sandwich": "🥪",
 
         # Countries
         "greece": "🇬🇷",
+
+        # A
+        "afghanistan": "🇦🇫",
+        "albania": "🇦🇱",
+        "algeria": "🇩🇿",
+        "andorra": "🇦🇩",
+        "angola": "🇦🇴",
+        "antigua and barbuda": "🇦🇬",
+        "argentina": "🇦🇷",
+        "armenia": "🇦🇲",
+        "australia": "🇦🇺",
+        "austria": "🇦🇹",
+        "azerbaijan": "🇦🇿",
+
+        # B
+        "bahamas": "🇧🇸",
+        "bahrain": "🇧🇭",
+        "bangladesh": "🇧🇩",
+        "barbados": "🇧🇧",
+        "belarus": "🇧🇾",
         "belgium": "🇧🇪",
+        "belize": "🇧🇿",
+        "benin": "🇧🇯",
+        "bhutan": "🇧🇹",
         "bolivia": "🇧🇴",
+        "bosnia and herzegovina": "🇧🇦",
+        "botswana": "🇧🇼",
+        "brazil": "🇧🇷",
+        "bulgaria": "🇧🇬",
+        "burkina faso": "🇧🇫",
+        "burundi": "🇧🇮",
+
+        # C
+        "cabo verde": "🇨🇻",
+        "cambodia": "🇰🇭",
+        "cameroon": "🇨🇲",
+        "canada": "🇨🇦",
+        "central african republic": "🇨🇫",
+        "chad": "🇹🇩",
+        "chile": "🇨🇱",
+        "china": "🇨🇳",
+        "colombia": "🇨🇴",
+        "comoros": "🇰🇲",
+        "congo": "🇨🇬",
+        "democratic republic of the congo": "🇨🇩",
+        "costa rica": "🇨🇷",
+        "côte d'ivoire": "🇨🇮",
+        "ivory coast": "🇨🇮",
+        "croatia": "🇭🇷",
+        "cuba": "🇨🇺",
+        "cyprus": "🇨🇾",
+        "czechia": "🇨🇿",
+        "czech republic": "🇨🇿",
+
+        # D
+        "denmark": "🇩🇰",
+        "djibouti": "🇩🇯",
+        "dominica": "🇩🇲",
+        "dominican republic": "🇩🇴",
+        
+        # E
+        "ecuador": "🇪🇨",
         "egypt": "🇪🇬",
+        "el salvador": "🇸🇻",
+        "equatorial guinea": "🇬🇶",
+        "eritrea": "🇪🇷",
+        "estonia": "🇪🇪",
+        "eswatini": "🇸🇿",
+        "ethiopia": "🇪🇹",
 
         # M
         "madagascar": "🇲🇬",
@@ -61,6 +129,7 @@ async def on_message(message):
         "nicaragua": "🇳🇮",
         "niger": "🇳🇪",
         "nigeria": "🇳🇬",
+        "north korea": "🇰🇵",
         "north macedonia": "🇲🇰",
         "norway": "🇳🇴",
 
