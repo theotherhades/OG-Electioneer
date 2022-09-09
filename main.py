@@ -44,9 +44,6 @@ async def on_message(message):
         "naeem": "😍",
         "sandwich": "🥪",
 
-        # Countries
-        "greece": "🇬🇷",
-
         # A
         "afghanistan": "🇦🇫",
         "albania": "🇦🇱",
@@ -115,6 +112,29 @@ async def on_message(message):
         "estonia": "🇪🇪",
         "eswatini": "🇸🇿",
         "ethiopia": "🇪🇹",
+
+        # F
+        "fiji": "🇫🇯",
+        "finland": "🇫🇮",
+        "france": "🇫🇷",
+        
+        # G
+        "gabon": "🇬🇦",
+        "gambia": "🇬🇲",
+        "georgia": "🇬🇪",
+        "germany": "🇩🇪",
+        "ghana": "🇬🇭",
+        "greece": "🇬🇷",
+        "grenada": "🇬🇩",
+        "guatemala": "🇬🇹",
+        "guinea": "🇬🇳",
+        "guinea-bissau": "🇬🇼",
+        "guyana": "🇬🇾",
+
+        # H
+        "haiti": "🇭🇹",
+        "honduras": "🇭🇳",
+        "hungary": "🇭🇺",
 
         # M
         "madagascar": "🇲🇬",
