@@ -343,12 +343,18 @@ async def vote(ctx, arg = ""):
 
     await ctx.reply(embed = embed)
 
+    if r["error"] == False:
+        log_embed = nextcord.Embed(title = "Vote log", description = f"A vote was cast for `{arg}`. More details below.")
+        log_embed.add_field(name = "Vote cast by", value = ctx.author.mention)
+        log_embed.add_field(name = "User ID", value = ctx.author.id)
+        log_embed.add_field(name = "Vote cast for", value = f"`{arg}`")
+        await client.get_channel(log_channel).send(embed = log_embed)
+
 # ----- Admin commands ----- #
 @client.command()
 async def admin(ctx, cmd, *, arg = ""):
     admin_roles = [
         nextcord.utils.get(ctx.guild.roles, id = 1013316067956891748), # dev server
-        nextcord.utils.get(ctx.guild.roles, id = 926904103399989248), # rear
         nextcord.utils.get(ctx.guild.roles, id = 925636478850195517), # vice
         nextcord.utils.get(ctx.guild.roles, id = 930302959668056135), # admiral
         nextcord.utils.get(ctx.guild.roles, id = 949071726392778843), # coleader
