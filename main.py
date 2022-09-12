@@ -18,7 +18,7 @@ user_whitelist = server.getwhitelist()
 log_channel = 1014449804136423474
 
 # ----- Tasks ----- #
-@tasks.loop(minutes = 5)
+@tasks.loop(minutes = 5.0)
 async def ping_server():
     embed = nextcord.Embed(title = ":sleeping: Waking server, please wait", description = "I ping the server once every 5 minutes to keep it awake. This may take a few seconds.", color = nextcord.Color.blurple())
     await client.get_channel(log_channel).send(embed = embed)
