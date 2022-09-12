@@ -1,2 +1,6 @@
 **/__pycache__
 **/SENSITIVE.txt
+**/venv
+**/.config
+**/.replit
+**/replit.nix
