@@ -2,7 +2,7 @@ import nextcord
 import server
 import datetime
 import os
-from nextcord.ext import commands
+from nextcord.ext import commands, tasks
 
 # NEVER publish this!!!
 CLIENT_TOKEN = os.environ["CLIENT_TOKEN"]
@@ -16,6 +16,19 @@ help_txt = {
 client = commands.Bot(command_prefix = "$", help_command = None)
 user_whitelist = server.getwhitelist()
 log_channel = 1014449804136423474
+
+# ----- Tasks ----- #
+@tasks.loop(minutes = 5)
+async def ping_server():
+    embed = nextcord.Embed(title = ":sleeping: Waking server, please wait", description = "I ping the server once every 5 minutes to keep it awake. This may take a few seconds.", color = nextcord.Color.blurple())
+    await client.get_channel(log_channel).send(embed = embed)
+    server_ping = server.ping()
+    
+    if server_ping == "success":
+        embed = nextcord.Embed(title = ":white_check_mark: Server woke successfully", color = nextcord.Color.green())
+    else:
+        embed = nextcord.Embed(title = ":no_entry: Server failed to wake", description = server_ping, color = nextcord.Color.red())
+    await client.get_channel(log_channel).send(embed = embed)
 
 # ----- Events ----- #
 @client.event
