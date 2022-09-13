@@ -411,17 +411,4 @@ async def admin(ctx, cmd, *, arg = ""):
         embed = nextcord.Embed(title = "Nice try :smiling_imp:", description = "You don't have the perms to use that command.\nIf this is a mistake, contact an admiral or try again.", color = nextcord.Color.red())
         await ctx.reply(embed = embed)
 
-# ----- Tasks ----- #
-@tasks.loop(minutes = 5.0)
-async def ping_server():
-    embed = nextcord.Embed(title = ":sleeping: Waking server, please wait", description = "I ping the server once every 5 minutes to keep it awake. This may take a few seconds.", color = nextcord.Color.blurple())
-    await client.get_channel(log_channel).send(embed = embed)
-    server_ping = server.ping()
-    
-    if server_ping == "success":
-        embed = nextcord.Embed(title = ":white_check_mark: Server woke successfully", color = nextcord.Color.green())
-    else:
-        embed = nextcord.Embed(title = ":no_entry: Server failed to wake", description = server_ping, color = nextcord.Color.red())
-    await client.get_channel(log_channel).send(embed = embed)
-
 client.run(CLIENT_TOKEN)
