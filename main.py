@@ -248,6 +248,9 @@ async def on_message(message):
 
     if (message.content.lower() == "hi") and (message.author.id != client.user.id):
         await message.reply("hi")
+
+    if (message.content.lower() == "bye") and (message.author.id != client.user.id):
+        await message.reply("bye")
     
     await client.process_commands(message)
 
