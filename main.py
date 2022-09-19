@@ -246,7 +246,7 @@ async def on_message(message):
         if (message.content.lower() == phrase) or (f" {phrase} " in message.content.lower()) or (message.content.lower().startswith(phrase)) or (message.content.lower().endswith(f" {phrase}")): 
             await message.add_reaction(reaction_phrases[phrase])
 
-    if message.content.lower() == "hi":
+    if (message.content.lower() == "hi") and (message.author.id != client.user.id):
         await message.reply("hi")
     
     await client.process_commands(message)
