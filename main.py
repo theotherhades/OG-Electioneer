@@ -2,7 +2,7 @@ import nextcord
 import server
 import datetime
 import os
-from nextcord.ext import commands, tasks
+from nextcord.ext import commands
 
 # NEVER publish this!!!
 CLIENT_TOKEN = os.environ["CLIENT_TOKEN"]
