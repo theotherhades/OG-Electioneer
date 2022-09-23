@@ -3,6 +3,7 @@ import server
 import datetime
 import os
 from nextcord.ext import commands
+from pymongo import MongoClient
 
 # NEVER publish this!!!
 CLIENT_TOKEN = os.environ["CLIENT_TOKEN"]
@@ -11,11 +12,13 @@ CLIENT_TOKEN = os.environ["CLIENT_TOKEN"]
 help_txt = {
     "help": "The help command",
     "count [candidate]": "Get the current vote counts. Will provide the counts for [candidate] if provided",
-    "vote <candidate>": "Cast a vote for <candidate>"
+    "vote <candidate>": "Cast a vote for <candidate>",
+    "mongo": "shh i'm testing mongodb",
 }
 client = commands.Bot(command_prefix = "$", help_command = None)
 user_whitelist = server.getwhitelist()
 log_channel = 1014449804136423474
+test_db = MongoClient("mongodb://mongo:qeAibA3i0BS4aqD2MK1B@containers-us-west-38.railway.app:5853")
 
 # ----- Events ----- #
 @client.event
@@ -349,6 +352,11 @@ async def vote(ctx, arg = ""):
         log_embed.add_field(name = "User ID", value = ctx.author.id)
         log_embed.add_field(name = "Vote cast for", value = f"`{arg}`")
         await client.get_channel(log_channel).send(embed = log_embed)
+
+@client.command()
+async def mongo(ctx):
+    document = test_db.find_one({"_id": "hamburger"})
+    await ctx.reply(f"The hamburger has a {document['bun']} bun with a {document['patty']} patty :hamburger:")
 
 # ----- Admin commands ----- #
 @client.command()
