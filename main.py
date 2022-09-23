@@ -248,6 +248,12 @@ async def on_message(message):
     for phrase in reaction_phrases.keys():
         if (message.content.lower() == phrase) or (f" {phrase} " in message.content.lower()) or (message.content.lower().startswith(phrase)) or (message.content.lower().endswith(f" {phrase}")): 
             await message.add_reaction(reaction_phrases[phrase])
+
+    if (message.content.lower() == "hi") and (message.author.id != client.user.id):
+        await message.reply("hi")
+
+    if (message.content.lower() == "bye") and (message.author.id != client.user.id):
+        await message.reply("bye")
     
     await client.process_commands(message)
 
