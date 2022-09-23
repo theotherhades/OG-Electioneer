@@ -18,7 +18,7 @@ help_txt = {
 client = commands.Bot(command_prefix = "$", help_command = None)
 user_whitelist = server.getwhitelist()
 log_channel = 1014449804136423474
-test_db = MongoClient("mongodb://mongo:qeAibA3i0BS4aqD2MK1B@containers-us-west-38.railway.app:5853")
+test_db = MongoClient("mongodb://mongo:qeAibA3i0BS4aqD2MK1B@containers-us-west-38.railway.app:5853")["idk"]["idk"]
 
 # ----- Events ----- #
 @client.event
