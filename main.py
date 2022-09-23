@@ -361,8 +361,11 @@ async def vote(ctx, arg = ""):
 
 @client.command()
 async def mongo(ctx):
-    document = test_db.find_one({"_id": "hamburger"})
-    await ctx.reply(f"The hamburger has a {document['bun']} bun with a {document['patty']} patty :hamburger:")
+    try:
+        document = test_db.find_one({"_id": "hamburger"})
+        await ctx.reply(f"The hamburger has a {document['bun']} bun with a {document['patty']} patty :hamburger:")
+    except Exception as e:
+        print(str(e))
 
 # ----- Admin commands ----- #
 @client.command()
