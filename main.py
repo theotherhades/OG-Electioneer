@@ -415,6 +415,9 @@ async def admin(ctx, cmd, *, arg = ""):
         if cmd == "close":
             r = server.close()
 
+        if cmd == "remove":
+            r = server.remove_vote(arg, 1)
+
         # Send back the results
         if r["error"] == True: embed_color = nextcord.Color.red()
         else: embed_color = nextcord.Color.green()
