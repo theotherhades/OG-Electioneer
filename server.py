@@ -43,6 +43,7 @@ def remove_vote(target: str, number: int):
     Remove <number> votes from <target>
     """
     r = json.loads(requests.post(f"{url}/removevote", data = {"target": target, "number": number}))
+    return r
 
 def getwhitelist():
     """
