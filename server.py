@@ -38,6 +38,12 @@ def vote(user: str, target: str):
     r = json.loads(requests.post(f"{url}/addvote", data = {"id": user, "target": target}).text)
     return r
 
+def remove_vote(target: str, number: int):
+    """
+    Remove <number> votes from <target>
+    """
+    r = json.loads(requests.post(f"{url}/removevote", data = {"target": target, "number": number}))
+
 def getwhitelist():
     """
     Get whitelisted users
